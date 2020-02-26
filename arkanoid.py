@@ -64,8 +64,10 @@ class Pelota(pygame.sprite.Sprite):
         
         if ((self.rect.x >= (800 - self.rect.width)) or (self.rect.x <= 0)): #si la pelota se trata de salir por un costado, se le cambia la direccion de movimiento
             self.velocidad[0] = -1*self.velocidad[0]
+            self.rect.x = 800 - self.rect.width
         if (self.rect.y < 0):
             self.velocidad[1] = -1*self.velocidad[1]
+            self.velocidad[1] = 0
         
     def chocar(self,colisiones): #efecto de cuando la pelota golpea un bloque
             rnd = random.randint(0,1)
