@@ -62,9 +62,12 @@ class Pelota(pygame.sprite.Sprite):
                 self.ejecutando = False #si no ha chocado con la barra es porque ya se le fue la bola y ha perdido
                 self.vidas -= 1
         
-        if ((self.rect.x >= (800 - self.rect.width)) or (self.rect.x <= 0)): #si la pelota se trata de salir por un costado, se le cambia la direccion de movimiento
+        if ((self.rect.x > (800 - self.rect.width)): #si la pelota se trata de salir por un costado, se le cambia la direccion de movimiento
             self.velocidad[0] = -1*self.velocidad[0]
             self.rect.x = 800 - self.rect.width
+        elif (self.rect.x < 0):
+            self.velocidad[0] = -1*self.velocidad[0]
+            self.rect.x = 0
         if (self.rect.y < 0):
             self.velocidad[1] = -1*self.velocidad[1]
             self.velocidad[1] = 0
